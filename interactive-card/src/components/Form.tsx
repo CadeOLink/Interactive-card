@@ -1,6 +1,5 @@
-import { useState } from "react";
-
-useState
+import { useState} from "react";
+import Card from "./Card";
 
 function Form(){
  
@@ -16,6 +15,8 @@ function Form(){
    }
 
    return(
+   <>
+      <Card textCard={textCard} numberCard={numberCard}/>
       <div className="form">
          <label className="form-name-number">
             <p>Cardholder Name</p>
@@ -32,6 +33,7 @@ function Form(){
          </label>
          <button type="submit">Confirm</button>
       </div>
+   </>
       )
 }
 
