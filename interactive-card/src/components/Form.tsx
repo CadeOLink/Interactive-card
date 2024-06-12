@@ -3,35 +3,50 @@ import Card from "./Card";
 
 function Form(){
  
-   const [textCard, setTextCard] = useState()
-   const [numberCard, setNumberCard] = useState()
-   const [cvc, setNumberCvc] = useState();
-   const [MM, setMM] = useState();
-   const [YY, setYY] = useState();
+   const [textCard, setTextCard] = useState('')
+   const [numberCard, setNumberCard] = useState('')
+   const [cvc, setNumberCvc] = useState('');
+   const [MM, setMM] = useState('');
+   const [YY, setYY] = useState('');
 
    function takeValueText(e:any){
-      setTextCard(e.target.value)
+      if(textCard.length < 25){
+         setTextCard(e.target.value); 
+      }
    }
 
    function takeValueNumber(e:any){
-      setNumberCard(e.target.value);
-   }
+      if(numberCard.length < 20){
+         setNumberCard(e.target.value);
+/*
 
-   function takeValueCvc(e:any){
-      setNumberCvc(e.target.value);
+         ARRUME ALGUM MODO DE COLOCAR OS ESPAÇOES ENTRE OS NÚMEROS EM 4 EM 4
+
+*/ 
+      }
    }
 
    function takeValueMM(e:any){
-      setMM(e.target.value);
+      if(MM.length < 2){
+         setMM(e.target.value); 
+      }
    }
 
    function takeValueYY(e:any){
-      setYY(e.target.value);
+      if(YY.length < 2){
+         setYY(e.target.value); 
+      }
+   }
+
+   function takeValueCvc(e:any){
+      if(cvc.length < 3){
+         setNumberCvc(e.target.value);
+      }
    }
 
    return(
    <>
-      <Card textCard={textCard} numberCard={numberCard} cvc={cvc} MM={MM} YY={YY}/>
+      <Card textCard={textCard} numberCard={numberCard} cvc={cvc} MM={MM} YY={`/`+YY}/>
       <div className="form">
          <label className="form-name-number">
             <p>Cardholder Name</p>
